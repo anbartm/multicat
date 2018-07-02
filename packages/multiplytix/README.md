@@ -2,8 +2,6 @@
 
 > Unified analytics API
 
-> Unified analytics API 
-
 - Mixpanel
 - Google Analytics
 - Google Remarketing Tag
@@ -33,8 +31,14 @@ npm install --save multiplytix
 ```js
 const multiplytixConfig = {
   google_analytics: <GOOGLE_ANALYTICS_ID>,
-  facebook_pixel: <FACEBOOK_PIXEL_ID>,
+  google_remarketing: <GOOGLE_REMARKETING_TAG>,
   mixpanel: <MIXPANEL_ID>,
+  hotjar: <HOTJAR_ID>,
+  facebook_pixel: <FACEBOOK_PIXEL_ID>,
+  twitter_pixel: <TWITTER_ID>,
+  pinterest_pixel: <PINTEREST_ID>,
+  reddit_pixel_q: <REDDIT_PIXEL_Q>,
+  reddit_pixel_s: <REDDIT_PIXEL_S>,
 }
 
 const multiplytix = new Multiplytix(multiplytixConfig)
