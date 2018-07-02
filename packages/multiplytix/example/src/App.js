@@ -15,21 +15,37 @@ const TWITTER_ID              = process.env.REACT_APP_TWITTER_ID
 
 const multiplytixConfig = {
   google_analytics: GOOGLE_ANALYTICS_ID,
-  facebook_pixel: FACEBOOK_PIXEL_ID,
-  mixpanel: MIXPANEL_ID,
+  facebook_pixel:   FACEBOOK_PIXEL_ID,
+  mixpanel:         MIXPANEL_ID,
   // ...
 }
 
 const multiplytix = new Multiplytix(multiplytixConfig)
 
+const addToCart = (items) => {
+  multiplytix.event('ADD_TO_CARD', { items })
+}
+
+// import * as Analytics from './analytics'
+
 export default class App extends Component {
+  
   componentDidMount() {
     multiplytix.view('/')
   }
+
+  handleAddToCartClick = (e) => {
+    e.preventDefault()
+    const items = []
+    // this.addToCart(items)
+    // Analytics.addToCart(items)
+  }
+
   render () {
     return (
       <div>
       </div>
     )
   }
+  
 }
