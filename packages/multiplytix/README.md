@@ -78,4 +78,4 @@ class Example extends Component {
 
 ## License
 
-MIT © [some1else](https://github.com/some1else)
+MIT © [Cofab](https://github.com/cofablab)
