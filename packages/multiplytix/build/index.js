@@ -283,7 +283,7 @@ module.exports = ReactPropTypesSecret;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.isProduction = exports.isDevelopment = exports.isServerSide = undefined;
+exports.isProduction = exports.isDevelopment = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -291,39 +291,38 @@ var _google_analytics = __webpack_require__(3);
 
 var _google_analytics2 = _interopRequireDefault(_google_analytics);
 
-var _facebook_pixel = __webpack_require__(11);
-
-var _facebook_pixel2 = _interopRequireDefault(_facebook_pixel);
-
-var _mixpanel = __webpack_require__(13);
-
-var _mixpanel2 = _interopRequireDefault(_mixpanel);
-
-var _google_remarketing_tag = __webpack_require__(14);
+var _google_remarketing_tag = __webpack_require__(11);
 
 var _google_remarketing_tag2 = _interopRequireDefault(_google_remarketing_tag);
 
-var _twitter_pixel = __webpack_require__(15);
+var _mixpanel = __webpack_require__(12);
 
-var _twitter_pixel2 = _interopRequireDefault(_twitter_pixel);
+var _mixpanel2 = _interopRequireDefault(_mixpanel);
+
+var _hotjar = __webpack_require__(13);
+
+var _hotjar2 = _interopRequireDefault(_hotjar);
+
+var _facebook_pixel = __webpack_require__(14);
+
+var _facebook_pixel2 = _interopRequireDefault(_facebook_pixel);
 
 var _pinterest_pixel = __webpack_require__(16);
 
 var _pinterest_pixel2 = _interopRequireDefault(_pinterest_pixel);
 
-var _reddit_pixel = __webpack_require__(17);
+var _twitter_pixel = __webpack_require__(17);
+
+var _twitter_pixel2 = _interopRequireDefault(_twitter_pixel);
+
+var _reddit_pixel = __webpack_require__(18);
 
 var _reddit_pixel2 = _interopRequireDefault(_reddit_pixel);
-
-var _hotjar = __webpack_require__(18);
-
-var _hotjar2 = _interopRequireDefault(_hotjar);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var isServerSide = exports.isServerSide = navigator.userAgent.includes('Node.js');
 var isDevelopment = exports.isDevelopment = process.env.NODE_ENV === 'development';
 var isProduction = exports.isProduction = process.env.NODE_ENV === 'production';
 
@@ -333,7 +332,7 @@ var Multiplytix = function () {
     value: function event(_event) {
       var properties = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-      if (!isProduction || isServerSide) {
+      if (!isProduction) {
         console.log('AnalyticsEvent', _event, properties);
         return false;
       }
@@ -345,7 +344,7 @@ var Multiplytix = function () {
   }, {
     key: 'view',
     value: function view(event) {
-      if (!isProduction || isServerSide) {
+      if (!isProduction) {
         console.log('PageViewEvent', event);
         return false;
       }
@@ -366,7 +365,8 @@ var Multiplytix = function () {
           facebook_pixel = config.facebook_pixel,
           twitter_pixel = config.twitter_pixel,
           pinterest_pixel = config.pinterest_pixel,
-          reddit_pixel = config.reddit_pixel;
+          reddit_pixel_q = config.reddit_pixel_q,
+          reddit_pixel_s = config.reddit_pixel_s;
 
 
       google_analytics && this.modules.push(new _google_analytics2.default(google_analytics));
@@ -375,8 +375,7 @@ var Multiplytix = function () {
       hotjar && this.modules.push(new _hotjar2.default(hotjar));
       facebook_pixel && this.modules.push(new _facebook_pixel2.default(facebook_pixel));
       twitter_pixel && this.modules.push(new _twitter_pixel2.default(twitter_pixel));
-      reddit_pixel && this.modules.push(new _reddit_pixel2.default(reddit_pixel));
-      pinterest_pixel && this.modules.push(new _pinterest_pixel2.default(pinterest_pixel));
+      pinterest_pixel && this.modules.push(new _pinterest_pixel2.default(pinterest_pixel))(reddit_pixel_q && reddit_pixel_s) && this.modules.push(new _reddit_pixel2.default(reddit_pixel_q, reddit_pixel_s));
 
       console.log('Multiplytix: Added', this.modules);
     }
@@ -2398,56 +2397,35 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _reactFacebookPixel = __webpack_require__(12);
-
-var _reactFacebookPixel2 = _interopRequireDefault(_reactFacebookPixel);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-// TODO: Lazy load
-// let ReactPixel
-// if (isProduction && !isServerSide) {
-//   ReactPixel = require('react-facebook-pixel')
-// }
+var GoogleRemarketingTag = function GoogleRemarketingTag(id) {
+  _classCallCheck(this, GoogleRemarketingTag);
 
-var FacebookPixel = function () {
-  _createClass(FacebookPixel, [{
-    key: 'view',
-    value: function view() {
-      _reactFacebookPixel2.default.pageView();
-    }
-  }, {
-    key: 'event',
-    value: function event(_event, properties) {
-      // TODO: Add properties
-      _reactFacebookPixel2.default.trackCustom(_event);
-    }
-  }]);
+  googleRemarketingInit(id);
+};
 
-  function FacebookPixel(id) {
-    _classCallCheck(this, FacebookPixel);
+exports.default = GoogleRemarketingTag;
 
-    _reactFacebookPixel2.default.init(id);
+/* eslint-disable */
+
+function googleRemarketingInit(google_remarketing_tag) {
+  var script = document.createElement('script');
+  script.async = true;
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=' + google_remarketing_tag;
+  var firstScript = document.getElementsByTagName('script')[0];
+  firstScript.parentNode.insertBefore(script, firstScript);
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
   }
-
-  return FacebookPixel;
-}();
-
-exports.default = FacebookPixel;
+  gtag('js', new Date());
+  gtag('config', google_remarketing_tag);
+}
+/* eslint-enable */
 
 /***/ }),
 /* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-!function(e,t){ true?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports.ReactPixel=t():e.ReactPixel=t()}(this,function(){return function(e){function t(r){if(n[r])return n[r].exports;var o=n[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,t),o.l=!0,o.exports}var n={};return t.m=e,t.c=n,t.i=function(e){return e},t.d=function(e,n,r){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:r})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=1)}([function(e,t,n){"use strict";function r(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}Object.defineProperty(t,"__esModule",{value:!0});var o=!1,i=!1,a=function(){return o||console.warn("Pixel not initialized before using call ReactPixel.init with required params"),o},c=function(){for(var e,t=arguments.length,n=Array(t),o=0;o<t;o++)n[o]=arguments[o];(e=console).info.apply(e,r(["[react-facebook-pixel]"].concat(n)))},f={autoConfig:!0,debug:!1};t.default={init:function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},n=arguments.length>2&&void 0!==arguments[2]?arguments[2]:f;!function(e,t,n,r,o,i,a){e.fbq||(o=e.fbq=function(){o.callMethod?o.callMethod.apply(o,arguments):o.queue.push(arguments)},e._fbq||(e._fbq=o),o.push=o,o.loaded=!0,o.version="2.0",o.queue=[],i=t.createElement(n),i.async=!0,i.src=r,a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(i,a))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js"),e?(!1===n.autoConfig&&fbq("set","autoConfig",!1,e),fbq("init",e,t),o=!0,i=n.debug):console.warn("Please insert pixel id for initializing")},pageView:function(){a()&&(fbq("track","PageView"),i&&c("called fbq('track', 'PageView');"))},track:function(e,t){a()&&(fbq("track",e,t),i&&(c("called fbq('track', '"+e+"');"),t&&c("with data",t)))},trackCustom:function(e,t){a()&&(fbq("trackCustom",e,t),i&&(c("called fbq('trackCustom', '"+e+"');"),t&&c("with data",t)))},fbq:function(e){function t(){return e.apply(this,arguments)}return t.toString=function(){return e.toString()},t}(function(){if(a()){for(var e=arguments.length,t=Array(e),n=0;n<e;n++)t[n]=arguments[n];fbq.apply(void 0,t),i&&(c("called fbq('"+t.slice(0,2).join("', '")+"')"),t[2]&&c("with data",t[2]))}})}},function(e,t,n){e.exports=n(0)}])});
-//# sourceMappingURL=fb-pixel.js.map
-
-/***/ }),
-/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2575,45 +2553,7 @@ function mixpanelInit(mixpanel_id) {
 /* eslint-enable */
 
 /***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var GoogleRemarketingTag = function GoogleRemarketingTag(id) {
-  _classCallCheck(this, GoogleRemarketingTag);
-
-  googleRemarketingInit(id);
-};
-
-exports.default = GoogleRemarketingTag;
-
-/* eslint-disable */
-
-function googleRemarketingInit(google_remarketing_tag) {
-  var script = document.createElement('script');
-  script.async = true;
-  script.src = 'https://www.googletagmanager.com/gtag/js?id=' + google_remarketing_tag;
-  var firstScript = document.getElementsByTagName('script')[0];
-  firstScript.parentNode.insertBefore(script, firstScript);
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    window.dataLayer.push(arguments);
-  }
-  gtag('js', new Date());
-  gtag('config', google_remarketing_tag);
-}
-/* eslint-enable */
-
-/***/ }),
-/* 15 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2627,42 +2567,104 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Twitter = function () {
-  _createClass(Twitter, [{
+var Hotjar = function () {
+  _createClass(Hotjar, [{
     key: 'view',
     value: function view() {
-      window.twq && window.twq('track', 'PageView');
+      void 0;
     }
   }, {
     key: 'event',
-    value: function event(e) {
-      window.twq && window.twq('track', e);
+    value: function event() {
+      void 0;
     }
   }]);
 
-  function Twitter(id) {
-    _classCallCheck(this, Twitter);
+  function Hotjar(id) {
+    _classCallCheck(this, Hotjar);
 
-    twitterInit(id);
+    hotjarInit(id);
   }
 
-  return Twitter;
+  return Hotjar;
 }();
 
-exports.default = Twitter;
+exports.default = Hotjar;
 
 /* eslint-disable */
 
-function twitterInit(twitter_id) {
-  !function (e, t, n, s, u, a) {
-    e.twq || (s = e.twq = function () {
-      s.exe ? s.exe.apply(s, arguments) : s.queue.push(arguments);
-    }, s.version = '1.1', s.queue = [], u = t.createElement(n), u.async = !0, u.src = '//static.ads-twitter.com/uwt.js', a = t.getElementsByTagName(n)[0], a.parentNode.insertBefore(u, a));
-  }(window, document, 'script');
-
-  window.twq('init', twitter_id);
+function hotjarInit(hotjar_id) {
+  (function (h, o, t, j, a, r) {
+    h.hj = h.hj || function () {
+      (h.hj.q = h.hj.q || []).push(arguments);
+    };
+    h._hjSettings = { hjid: hotjar_id, hjsv: 6 };
+    a = o.getElementsByTagName('head')[0];
+    r = o.createElement('script');r.async = 1;
+    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
 }
 /* eslint-enable */
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactFacebookPixel = __webpack_require__(15);
+
+var _reactFacebookPixel2 = _interopRequireDefault(_reactFacebookPixel);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+// TODO: Lazy load
+// let ReactPixel
+// if (isProduction && !isServerSide) {
+//   ReactPixel = require('react-facebook-pixel')
+// }
+
+var FacebookPixel = function () {
+  _createClass(FacebookPixel, [{
+    key: 'view',
+    value: function view() {
+      _reactFacebookPixel2.default.pageView();
+    }
+  }, {
+    key: 'event',
+    value: function event(_event, properties) {
+      // TODO: Add properties
+      _reactFacebookPixel2.default.trackCustom(_event);
+    }
+  }]);
+
+  function FacebookPixel(id) {
+    _classCallCheck(this, FacebookPixel);
+
+    _reactFacebookPixel2.default.init(id);
+  }
+
+  return FacebookPixel;
+}();
+
+exports.default = FacebookPixel;
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(e,t){ true?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports.ReactPixel=t():e.ReactPixel=t()}(this,function(){return function(e){function t(r){if(n[r])return n[r].exports;var o=n[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,t),o.l=!0,o.exports}var n={};return t.m=e,t.c=n,t.i=function(e){return e},t.d=function(e,n,r){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:r})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=1)}([function(e,t,n){"use strict";function r(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}Object.defineProperty(t,"__esModule",{value:!0});var o=!1,i=!1,a=function(){return o||console.warn("Pixel not initialized before using call ReactPixel.init with required params"),o},c=function(){for(var e,t=arguments.length,n=Array(t),o=0;o<t;o++)n[o]=arguments[o];(e=console).info.apply(e,r(["[react-facebook-pixel]"].concat(n)))},f={autoConfig:!0,debug:!1};t.default={init:function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},n=arguments.length>2&&void 0!==arguments[2]?arguments[2]:f;!function(e,t,n,r,o,i,a){e.fbq||(o=e.fbq=function(){o.callMethod?o.callMethod.apply(o,arguments):o.queue.push(arguments)},e._fbq||(e._fbq=o),o.push=o,o.loaded=!0,o.version="2.0",o.queue=[],i=t.createElement(n),i.async=!0,i.src=r,a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(i,a))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js"),e?(!1===n.autoConfig&&fbq("set","autoConfig",!1,e),fbq("init",e,t),o=!0,i=n.debug):console.warn("Please insert pixel id for initializing")},pageView:function(){a()&&(fbq("track","PageView"),i&&c("called fbq('track', 'PageView');"))},track:function(e,t){a()&&(fbq("track",e,t),i&&(c("called fbq('track', '"+e+"');"),t&&c("with data",t)))},trackCustom:function(e,t){a()&&(fbq("trackCustom",e,t),i&&(c("called fbq('trackCustom', '"+e+"');"),t&&c("with data",t)))},fbq:function(e){function t(){return e.apply(this,arguments)}return t.toString=function(){return e.toString()},t}(function(){if(a()){for(var e=arguments.length,t=Array(e),n=0;n<e;n++)t[n]=arguments[n];fbq.apply(void 0,t),i&&(c("called fbq('"+t.slice(0,2).join("', '")+"')"),t[2]&&c("with data",t[2]))}})}},function(e,t,n){e.exports=n(0)}])});
+//# sourceMappingURL=fb-pixel.js.map
 
 /***/ }),
 /* 16 */
@@ -2734,6 +2736,58 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Twitter = function () {
+  _createClass(Twitter, [{
+    key: 'view',
+    value: function view() {
+      window.twq && window.twq('track', 'PageView');
+    }
+  }, {
+    key: 'event',
+    value: function event(e) {
+      window.twq && window.twq('track', e);
+    }
+  }]);
+
+  function Twitter(id) {
+    _classCallCheck(this, Twitter);
+
+    twitterInit(id);
+  }
+
+  return Twitter;
+}();
+
+exports.default = Twitter;
+
+/* eslint-disable */
+
+function twitterInit(twitter_id) {
+  !function (e, t, n, s, u, a) {
+    e.twq || (s = e.twq = function () {
+      s.exe ? s.exe.apply(s, arguments) : s.queue.push(arguments);
+    }, s.version = '1.1', s.queue = [], u = t.createElement(n), u.async = !0, u.src = '//static.ads-twitter.com/uwt.js', a = t.getElementsByTagName(n)[0], a.parentNode.insertBefore(u, a));
+  }(window, document, 'script');
+
+  window.twq('init', twitter_id);
+}
+/* eslint-enable */
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Reddit = function Reddit(q, s) {
@@ -2749,61 +2803,6 @@ exports.default = Reddit;
 function redditPixelInit(reddit_q, reddit_s) {
   var img = new Image();
   img.src = "https://alb.reddit.com/snoo.gif?q=" + reddit_q + "&s=" + reddit_s;
-}
-/* eslint-enable */
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Hotjar = function () {
-  _createClass(Hotjar, [{
-    key: 'view',
-    value: function view() {
-      void 0;
-    }
-  }, {
-    key: 'event',
-    value: function event() {
-      void 0;
-    }
-  }]);
-
-  function Hotjar(id) {
-    _classCallCheck(this, Hotjar);
-
-    hotjarInit(id);
-  }
-
-  return Hotjar;
-}();
-
-exports.default = Hotjar;
-
-/* eslint-disable */
-
-function hotjarInit(hotjar_id) {
-  (function (h, o, t, j, a, r) {
-    h.hj = h.hj || function () {
-      (h.hj.q = h.hj.q || []).push(arguments);
-    };
-    h._hjSettings = { hjid: hotjar_id, hjsv: 6 };
-    a = o.getElementsByTagName('head')[0];
-    r = o.createElement('script');r.async = 1;
-    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-    a.appendChild(r);
-  })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
 }
 /* eslint-enable */
 
