@@ -41,4 +41,6 @@ class MultiplytixLanden {
 
 }
 
+window.MultiplytixLanden = MultiplytixLanden
+
 export default MultiplytixLanden
