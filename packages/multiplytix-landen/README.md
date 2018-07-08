@@ -8,8 +8,8 @@ Append this script tag and piece of code before you close the `<body>` tag
 <script>
   function initMultiplytix() {
     new MultiplytixLanden({
-      googleAnalytics: <GOOGLE_ID>,
-      facebookPixel: <FACEBOOK_PIXEL_ID>,
+      google_analytics: <GOOGLE_ID>,
+      facebook_pixel: <FACEBOOK_PIXEL_ID>,
       mixpanel: <MIXPANEL_ID>,
     })
   }
@@ -17,11 +17,13 @@ Append this script tag and piece of code before you close the `<body>` tag
 </script>
 ```
 
-## Landen Events
+You're done 🎉
+
+## Landen Events 🎭
 
 Check out the [Multiplytix Landen tracking plan](https://github.com/cofablab/multiplytix-landen/TRACKING_PLAN.md), to see which kinds of conversion events are supported out of the box.
 
-## Custom events api
+## Custom events api 🛂
 
 If you wish to implement additional conversion events yourself, use the window.multiplytix instance to dispatch events and pageviews, like so:
 
@@ -33,3 +35,7 @@ window.multiplytix && window.multiplytix.event({
   }
 })
 ```
+
+## License
+
+MIT, (c) Cofab 2018
