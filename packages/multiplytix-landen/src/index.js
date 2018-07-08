@@ -22,10 +22,10 @@ class MultiplytixLanden {
   }
 
   addClickListeners() {
-    const anchors = document.getElementByTagName('A')
-    anchors.forEach(anchor => {
-      anchor.addEventListener('click', handleAnchorClick)
-    })
+    const anchors = document.getElementsByTagName('A')
+    for (let a of anchors) {
+      a.addEventListener('click', this.handleAnchorClick)
+    }
   }
 
   addEventListeners() {
