@@ -4,10 +4,10 @@ Multiplytix Landen integration
 Append this script tag and piece of code before you close the `<body>` tag
 
 ```
-<script src='https://unpkg.com/multiplytix-landen-0.1.0.min.js' async></script>
+<script src='https://unpkg.com/multiplytix-landen@0.0.1/build/index.js' async></script>
 <script>
   function initMultiplytix() {
-    new MultiplytixLanden({
+    new window.MultiplytixLanden({
       google_analytics: <GOOGLE_ID>,
       facebook_pixel: <FACEBOOK_PIXEL_ID>,
       mixpanel: <MIXPANEL_ID>,
