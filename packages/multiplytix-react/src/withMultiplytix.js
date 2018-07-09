@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import hoistStatics from "hoist-non-react-statics"
 
 const withMultiplytix = Component => {
-  const C = (props, state, context) => {
+  const C = (props, context) => {
     const { wrappedComponentRef, ...remainingProps } = props
     const { multiplytixEvent, multiplytixView } = context
     return (

@@ -1,9 +1,2 @@
-import Provider from './Provider'
-import withMultiplytix from './withMultiplytix'
-
-const module = {
-  Provider,
-  withMultiplytix
-}
-
-export default module
+export withMultiplytix from './withMultiplytix'
+export Provider from './Provider'
