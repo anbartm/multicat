@@ -7,7 +7,7 @@ Append this script tag and piece of code before you close the `<body>` tag
 <script src='https://unpkg.com/multiplytix-landen@0.0.1/build/index.js' async></script>
 <script>
   function initMultiplytix() {
-    new window.MultiplytixLanden({
+    new MultiplytixLanden({
       google_analytics: <GOOGLE_ID>,
       facebook_pixel: <FACEBOOK_PIXEL_ID>,
       mixpanel: <MIXPANEL_ID>,
@@ -28,11 +28,9 @@ Check out the [Multiplytix Landen tracking plan](https://github.com/cofablab/mul
 If you wish to implement additional conversion events yourself, use the window.multiplytix instance to dispatch events and pageviews, like so:
 
 ```
-window.multiplytix && window.multiplytix.event({
-  type: 'CustomConversionEvent',
-  properties: {
-    progress: '95%',
-  }
+window.multiplytix && window.multiplytix.event(
+  'CustomConversionEvent', // event
+  { progress: '95%' }      // properties
 })
 ```
 

@@ -13,12 +13,10 @@ class MultiplytixLanden {
   handleAnchorClick = (e) => {
     const { currentTarget } = e
     const { id, src, className, innerText } = currentTarget
-    window.multiplytix.event({
-      type: 'LandenAnchorClick',
-      properties: {
-        id, src, className, innerText
-      }
-    })
+    window.multiplytix.event(
+      'LandenAnchorClick',
+      { id, src, className, innerText }
+    )
   }
 
   addClickListeners() {
