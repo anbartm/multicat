@@ -25,7 +25,7 @@ You can [check the example](https://github.com/cofablab/multiplytix-landen/blob/
 
 ## Landen Events 🎭
 
-Check out the [Multiplytix Landen tracking plan](https://github.com/cofablab/multiplytix-landen/TRACKING_PLAN.md), to see which kinds of conversion events are supported out of the box.
+Check out the [Multiplytix Landen tracking plan](https://github.com/cofablab/multiplytix-landen/blob/master/TRACKING_PLAN.md), to see which kinds of conversion events are supported out of the box.
 
 ## Custom events api 🛂
 
