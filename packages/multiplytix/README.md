@@ -47,38 +47,14 @@ multiplytix.event(event, propertes)
 multiplytix.view(pathname)
 ```
 
+
+### Landen.io
+
+Drop in version for Landen: [https://github.com/cofablab/multiplytix-landen](https://github.com/cofablab/multiplytix-landen)
+
 ### React
 
-```jsx
-import React, { Component } from 'react'
-
-import Multiplytix, { Provider, Consumer } from 'multiplytix'
-
-const providers = {
-  google: 'UA-XXX-XX',
-  mixpanel: 'ae90c9da671e8',
-}
-
-class Example extends Component {
-  render () {
-    return (
-      <App>
-        <Multiplytix.Provider config={ providers }>
-        
-          <div className='something'>
-
-            <Multiplytix.Consumer> {(view, event) => (
-              <MyComponent analytics={{ view, event }} />
-            )} </Multiplytix.Consumer>
-          
-          </div>
-        
-        </Multiplytix.Provider>
-      </App>
-    )
-  }
-}
-```
+Context provider for React: [https://github.com/cofablab/multiplytix-react](https://github.com/cofablab/multiplytix-react)
 
 ## License
 
