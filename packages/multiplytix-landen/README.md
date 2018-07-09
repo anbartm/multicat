@@ -1,6 +1,8 @@
 Multiplytix Landen integration
 ==============================
 
+[![NPM](https://img.shields.io/npm/v/multiplytix-landen.svg)](https://www.npmjs.com/package/multiplytix-landen)
+
 Append this script tag and piece of code before you close the `<body>` tag
 
 ```
