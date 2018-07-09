@@ -556,12 +556,7 @@ var MultiplytixLanden = function () {
           className = currentTarget.className,
           innerText = currentTarget.innerText;
 
-      window.multiplytix.event({
-        type: 'LandenAnchorClick',
-        properties: {
-          id: id, src: src, className: className, innerText: innerText
-        }
-      });
+      window.multiplytix.event('LandenAnchorClick', { id: id, src: src, className: className, innerText: innerText });
     };
 
     window.multiplytix = new _multiplytix2.default(config);
