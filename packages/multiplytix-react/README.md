@@ -1,6 +1,8 @@
 # Multiplytix React
 
-# 🚧 WIP 🏗 Version 0.0.1 🚧
+[![NPM](https://img.shields.io/npm/v/multiplytix-react.svg)](https://www.npmjs.com/package/multiplytix-react)
+
+# 🚧 WIP 🏗 UNDER CONSTRUCTION 🚧
 
 > React context provider for [Multiplytix](https://github.com/cofablab/multiplytix), the unified analytics API.
 
@@ -12,7 +14,6 @@
 - Twitter pixel
 - Hotjar
 
-[![NPM](https://img.shields.io/npm/v/multiplytix-react.svg)](https://www.npmjs.com/package/multiplytix-react)
 
 ## Install
 
