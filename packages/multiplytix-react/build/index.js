@@ -326,11 +326,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Provider = exports.withMultiplytix = undefined;
 
-var _withMultiplytix2 = __webpack_require__(11);
+var _withMultiplytix2 = __webpack_require__(5);
 
 var _withMultiplytix3 = _interopRequireDefault(_withMultiplytix2);
 
-var _Provider2 = __webpack_require__(5);
+var _Provider2 = __webpack_require__(11);
 
 var _Provider3 = _interopRequireDefault(_Provider2);
 
@@ -349,9 +349,8 @@ exports.Provider = _Provider3.default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _jsxFileName = '/Users/s1e/Sites/Cofab/multiplytix-react/src/Provider.js';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _react = __webpack_require__(0);
 
@@ -361,80 +360,43 @@ var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _multiplytix = __webpack_require__(10);
+var _hoistNonReactStatics = __webpack_require__(10);
 
-var _multiplytix2 = _interopRequireDefault(_multiplytix);
+var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+var withMultiplytix = function withMultiplytix(Component) {
+  var C = function C(props, context) {
+    var wrappedComponentRef = props.wrappedComponentRef,
+        remainingProps = _objectWithoutProperties(props, ["wrappedComponentRef"]);
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+    var multiplytixEvent = context.multiplytixEvent,
+        multiplytixView = context.multiplytixView;
 
-var Provider = function (_PureComponent) {
-  _inherits(Provider, _PureComponent);
+    return _react2.default.createElement(Component, _extends({}, remainingProps, {
+      ref: wrappedComponentRef,
+      multiplytixEvent: multiplytixEvent,
+      multiplytixView: multiplytixView
+    }));
+  };
 
-  function Provider() {
-    var _ref;
+  C.displayName = "withMultiplytix(" + (Component.displayName || Component.name) + ")";
+  C.WrappedComponent = Component;
+  C.propTypes = {
+    wrappedComponentRef: _propTypes2.default.func
+  };
+  C.contextTypes = {
+    multiplytixEvent: _propTypes2.default.func,
+    multiplytixView: _propTypes2.default.func
+  };
 
-    var _temp, _this, _ret;
-
-    _classCallCheck(this, Provider);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Provider.__proto__ || Object.getPrototypeOf(Provider)).call.apply(_ref, [this].concat(args))), _this), _this.getChildContext = function () {
-      return {
-        multiplytixEvent: _this.multiplytixEvent,
-        multiplytixView: _this.multiplytixView
-      };
-    }, _this.multiplytixEvent = function (event, properties) {
-      _this.multiplytix.event(event, properties);
-    }, _this.multiplytixView = function (pathname) {
-      _this.multiplytix.view(pathname);
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
-
-  _createClass(Provider, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      var config = this.props.config;
-
-
-      this.multiplytix = new _multiplytix2.default(config);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var children = this.props.children;
-
-
-      return _react2.default.createElement(
-        _react.Fragment,
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 35
-          },
-          __self: this
-        },
-        children
-      );
-    }
-  }]);
-
-  return Provider;
-}(_react.PureComponent);
-
-Provider.childContextTypes = {
-  multiplytixEvent: _propTypes2.default.func,
-  multiplytixView: _propTypes2.default.func
+  return (0, _hoistNonReactStatics2.default)(C, Component);
 };
-exports.default = Provider;
+
+exports.default = withMultiplytix;
 
 /***/ }),
 /* 6 */
@@ -1263,6 +1225,171 @@ module.exports = function() {
 
 /***/ }),
 /* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright 2015, Yahoo! Inc.
+ * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
+ */
+var REACT_STATICS = {
+    childContextTypes: true,
+    contextTypes: true,
+    defaultProps: true,
+    displayName: true,
+    getDefaultProps: true,
+    getDerivedStateFromProps: true,
+    mixins: true,
+    propTypes: true,
+    type: true
+};
+
+var KNOWN_STATICS = {
+    name: true,
+    length: true,
+    prototype: true,
+    caller: true,
+    callee: true,
+    arguments: true,
+    arity: true
+};
+
+var defineProperty = Object.defineProperty;
+var getOwnPropertyNames = Object.getOwnPropertyNames;
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
+var getPrototypeOf = Object.getPrototypeOf;
+var objectPrototype = getPrototypeOf && getPrototypeOf(Object);
+
+function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
+    if (typeof sourceComponent !== 'string') { // don't hoist over string (html) components
+
+        if (objectPrototype) {
+            var inheritedComponent = getPrototypeOf(sourceComponent);
+            if (inheritedComponent && inheritedComponent !== objectPrototype) {
+                hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);
+            }
+        }
+
+        var keys = getOwnPropertyNames(sourceComponent);
+
+        if (getOwnPropertySymbols) {
+            keys = keys.concat(getOwnPropertySymbols(sourceComponent));
+        }
+
+        for (var i = 0; i < keys.length; ++i) {
+            var key = keys[i];
+            if (!REACT_STATICS[key] && !KNOWN_STATICS[key] && (!blacklist || !blacklist[key])) {
+                var descriptor = getOwnPropertyDescriptor(sourceComponent, key);
+                try { // Avoid failures from read-only properties
+                    defineProperty(targetComponent, key, descriptor);
+                } catch (e) {}
+            }
+        }
+
+        return targetComponent;
+    }
+
+    return targetComponent;
+}
+
+module.exports = hoistNonReactStatics;
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _multiplytix = __webpack_require__(12);
+
+var _multiplytix2 = _interopRequireDefault(_multiplytix);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Provider = function (_PureComponent) {
+  _inherits(Provider, _PureComponent);
+
+  function Provider() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Provider);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Provider.__proto__ || Object.getPrototypeOf(Provider)).call.apply(_ref, [this].concat(args))), _this), _this.getChildContext = function () {
+      return {
+        multiplytixEvent: _this.multiplytixEvent,
+        multiplytixView: _this.multiplytixView
+      };
+    }, _this.multiplytixEvent = function (event, properties) {
+      _this.multiplytix.event(event, properties);
+    }, _this.multiplytixView = function (pathname) {
+      _this.multiplytix.view(pathname);
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Provider, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var config = this.props.config;
+
+
+      this.multiplytix = new _multiplytix2.default(config);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var children = this.props.children;
+
+
+      return _react2.default.createElement(
+        _react.Fragment,
+        null,
+        children
+      );
+    }
+  }]);
+
+  return Provider;
+}(_react.PureComponent);
+
+Provider.childContextTypes = {
+  multiplytixEvent: _propTypes2.default.func,
+  multiplytixView: _propTypes2.default.func
+};
+exports.default = Provider;
+
+/***/ }),
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports =
@@ -4075,147 +4202,6 @@ function redditPixelInit(reddit_q, reddit_s) {
 
 /***/ })
 /******/ ]);
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _jsxFileName = "/Users/s1e/Sites/Cofab/multiplytix-react/src/withMultiplytix.js";
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(3);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _hoistNonReactStatics = __webpack_require__(12);
-
-var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-var withMultiplytix = function withMultiplytix(Component) {
-  var C = function C(props, context) {
-    var wrappedComponentRef = props.wrappedComponentRef,
-        remainingProps = _objectWithoutProperties(props, ["wrappedComponentRef"]);
-
-    var multiplytixEvent = context.multiplytixEvent,
-        multiplytixView = context.multiplytixView;
-
-    return _react2.default.createElement(Component, _extends({}, remainingProps, {
-      ref: wrappedComponentRef,
-      multiplytixEvent: multiplytixEvent,
-      multiplytixView: multiplytixView,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 10
-      },
-      __self: undefined
-    }));
-  };
-
-  C.displayName = "withMultiplytix(" + (Component.displayName || Component.name) + ")";
-  C.WrappedComponent = Component;
-  C.propTypes = {
-    wrappedComponentRef: _propTypes2.default.func
-  };
-  C.contextTypes = {
-    multiplytixEvent: _propTypes2.default.func,
-    multiplytixView: _propTypes2.default.func
-  };
-
-  return (0, _hoistNonReactStatics2.default)(C, Component);
-};
-
-exports.default = withMultiplytix;
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright 2015, Yahoo! Inc.
- * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
- */
-var REACT_STATICS = {
-    childContextTypes: true,
-    contextTypes: true,
-    defaultProps: true,
-    displayName: true,
-    getDefaultProps: true,
-    getDerivedStateFromProps: true,
-    mixins: true,
-    propTypes: true,
-    type: true
-};
-
-var KNOWN_STATICS = {
-    name: true,
-    length: true,
-    prototype: true,
-    caller: true,
-    callee: true,
-    arguments: true,
-    arity: true
-};
-
-var defineProperty = Object.defineProperty;
-var getOwnPropertyNames = Object.getOwnPropertyNames;
-var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
-var getPrototypeOf = Object.getPrototypeOf;
-var objectPrototype = getPrototypeOf && getPrototypeOf(Object);
-
-function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
-    if (typeof sourceComponent !== 'string') { // don't hoist over string (html) components
-
-        if (objectPrototype) {
-            var inheritedComponent = getPrototypeOf(sourceComponent);
-            if (inheritedComponent && inheritedComponent !== objectPrototype) {
-                hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);
-            }
-        }
-
-        var keys = getOwnPropertyNames(sourceComponent);
-
-        if (getOwnPropertySymbols) {
-            keys = keys.concat(getOwnPropertySymbols(sourceComponent));
-        }
-
-        for (var i = 0; i < keys.length; ++i) {
-            var key = keys[i];
-            if (!REACT_STATICS[key] && !KNOWN_STATICS[key] && (!blacklist || !blacklist[key])) {
-                var descriptor = getOwnPropertyDescriptor(sourceComponent, key);
-                try { // Avoid failures from read-only properties
-                    defineProperty(targetComponent, key, descriptor);
-                } catch (e) {}
-            }
-        }
-
-        return targetComponent;
-    }
-
-    return targetComponent;
-}
-
-module.exports = hoistNonReactStatics;
-
 
 /***/ })
 /******/ ]);
