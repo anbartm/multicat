@@ -1,6 +1,10 @@
 # multiplytix
 
-> Unified analytics API
+[![NPM](https://img.shields.io/npm/v/multiplytix.svg)](https://www.npmjs.com/package/multiplytix)
+
+> A Unified analytics API
+
+Providers:
 
 - Mixpanel
 - Google Analytics
@@ -13,15 +17,20 @@
 Features:
 
 - Unified API
-- React Context
-- Landen Integration
+- Landen.io Integration
+- React context provider
 
-[![NPM](https://img.shields.io/npm/v/multiplytix.svg)](https://www.npmjs.com/package/multiplytix) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
 npm install --save multiplytix
+```
+
+or
+
+```bash
+yarn add multiplytix
 ```
 
 ## Usage
@@ -43,8 +52,8 @@ const multiplytixConfig = {
 
 const multiplytix = new Multiplytix(multiplytixConfig)
 
-multiplytix.event(event, propertes)
-multiplytix.view(pathname)
+multiplytix.event(`MY_EVENT`, {me: 'ta', da: 'ta'})
+multiplytix.view('/thank-you.html')
 ```
 
 
