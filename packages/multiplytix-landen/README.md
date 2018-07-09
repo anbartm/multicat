@@ -21,6 +21,8 @@ Append this script tag and piece of code before you close the `<body>` tag
 
 You're done 🎉
 
+You can [check the example](https://github.com/cofablab/multiplytix-landen/blob/master/example/index.html#L436) for reference.
+
 ## Landen Events 🎭
 
 Check out the [Multiplytix Landen tracking plan](https://github.com/cofablab/multiplytix-landen/TRACKING_PLAN.md), to see which kinds of conversion events are supported out of the box.
