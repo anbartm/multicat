@@ -347,7 +347,7 @@ var Multiplytix = function () {
       log('AnalyticsEvent', _event, properties);
 
       this.modules.forEach(function (mod) {
-        return mod.event(_event, properties);
+        return mod.event && mod.event(_event, properties);
       });
     }
   }, {
@@ -358,7 +358,7 @@ var Multiplytix = function () {
       var pathname = window.location.pathname;
 
       this.modules.forEach(function (mod) {
-        return mod.view(pathname);
+        return mod.view && mod.view(pathname);
       });
     }
   }, {
