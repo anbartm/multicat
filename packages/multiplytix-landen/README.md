@@ -6,7 +6,7 @@ Multiplytix Landen integration
 Append this script tag and piece of code before you close the `<body>` tag
 
 ```
-<script src='https://unpkg.com/multiplytix-landen@0.0.4/build/index.js' async></script>
+<script src='https://unpkg.com/multiplytix-landen@0.0.5/build/index.js' async></script>
 <script>
   function initMultiplytix() {
     new MultiplytixLanden({

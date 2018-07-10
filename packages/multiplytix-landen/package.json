@@ -1,6 +1,6 @@
 {
   "name": "multiplytix-landen",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Drop in analytics for Landen pages",
   "main": "build/index.js",
   "dependencies": {
