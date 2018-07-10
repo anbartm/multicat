@@ -29,7 +29,9 @@ yarn add multiplytix multiplytix-react
 
 ## Usage
 
-Wrap your App in a `Provider`, and receive `multiplytixEvent` or `multiplytixView` as props with the help of `withMultiplytix` wrapper, or receive them from the context through `contextTypes`. Check the [example project](https://github.com/cofablab/multiplytix-react/tree/master/example) in this repository.
+Wrap your App in a `Provider`, and receive `multiplytixEvent` or `multiplytixView` as props with the help of `withMultiplytix` wrapper, or receive them from the context through `contextTypes`.
+
+Check the [example project](https://github.com/cofablab/multiplytix-react/tree/master/example) in this repository.
 
 ### Upcoming API changes ❓📦🤷‍♀️
 
