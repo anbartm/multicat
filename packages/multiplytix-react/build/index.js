@@ -1720,16 +1720,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var isDevelopment = exports.isDevelopment = process.env.NODE_ENV === 'development';
 var isProduction = exports.isProduction = process.env.NODE_ENV === 'production';
 
+var log = function log() {
+  for (var _len = arguments.length, msgs = Array(_len), _key = 0; _key < _len; _key++) {
+    msgs[_key] = arguments[_key];
+  }
+
+  if (isDevelopment || window.LOG_MULTIPLYTIX) {
+    var _console;
+
+    (_console = console).log.apply(_console, ['Multiplytix'].concat(msgs));
+  }
+};
+
 var Multiplytix = function () {
   _createClass(Multiplytix, [{
     key: 'event',
     value: function event(_event) {
       var properties = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-      if (!isProduction) {
-        console.log('AnalyticsEvent', _event, properties);
-        return false;
-      }
+      log('AnalyticsEvent', _event, properties);
 
       this.modules.forEach(function (mod) {
         return mod.event(_event, properties);
@@ -1738,10 +1747,7 @@ var Multiplytix = function () {
   }, {
     key: 'view',
     value: function view(event) {
-      if (!isProduction) {
-        console.log('PageViewEvent', event);
-        return false;
-      }
+      log('PageViewEvent', event);
 
       var pathname = window.location.pathname;
 
@@ -1769,9 +1775,12 @@ var Multiplytix = function () {
       hotjar && this.modules.push(new _hotjar2.default(hotjar));
       facebook_pixel && this.modules.push(new _facebook_pixel2.default(facebook_pixel));
       twitter_pixel && this.modules.push(new _twitter_pixel2.default(twitter_pixel));
-      pinterest_pixel && this.modules.push(new _pinterest_pixel2.default(pinterest_pixel))(reddit_pixel_q && reddit_pixel_s) && this.modules.push(new _reddit_pixel2.default(reddit_pixel_q, reddit_pixel_s));
+      pinterest_pixel && this.modules.push(new _pinterest_pixel2.default(pinterest_pixel));
+      if (reddit_pixel_q && reddit_pixel_s) {
+        this.modules.push(new _reddit_pixel2.default(reddit_pixel_q, reddit_pixel_s));
+      }
 
-      console.log('Multiplytix: Added', this.modules);
+      log('AddedModules', this.modules);
     }
   }]);
 
