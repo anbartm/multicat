@@ -10,6 +10,11 @@ class MultiplytixLanden {
     // TODO
   }
 
+  handleFirstView() {
+    const { pathname } = window.location
+    window.multiplytix.view(pathname)
+  }
+
   handleAnchorClick = (e) => {
     const { currentTarget } = e
     const { id, href, className, innerText } = currentTarget
@@ -35,6 +40,7 @@ class MultiplytixLanden {
   constructor(config) {
     window.multiplytix = new Multiplytix(config)
     this.addEventListeners()
+    this.handleFirstView()
   }
 
 }

@@ -1,11 +1,17 @@
-# Scroll events
+# Landen tracking plan
+
+## Page view events
+
+Initial `PageView` event happens when `MultiplytixLanden` is instantiated, with `window.location.pathname` as the `pathname` property.
+
+## Scroll events
 
 // TODO
 
-# Mailchimp events
+## Mailchimp events
 
 // TODO
 
-# Anchor click events
+## Anchor click events
 
-All anchor clicks are broadcast as `LandenAnchorClick`. Properties: `id`, `src`, `className`, `innerText`.
+All anchor clicks are broadcast as `LandenAnchorClick`. Properties: `id`, `href`, `className`, `innerText`.
