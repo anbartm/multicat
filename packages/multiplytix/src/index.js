@@ -10,24 +10,24 @@ import RedditPixel from './modules/reddit_pixel'
 export const isDevelopment = process.env.NODE_ENV === 'development'
 export const isProduction = process.env.NODE_ENV === 'production'
 
+const log = (...msgs) => {
+  if (isDevelopment || window.LOG_MULTIPLYTIX) {
+    console.log('Multiplytix', ...msgs)
+  }
+} 
+
 class Multiplytix {
 
   modules = []
 
   event(event, properties = {}) {
-    if (isDevelopment) {
-      console.log('AnalyticsEvent', event, properties)
-      return false
-    }
+    log('AnalyticsEvent', event, properties)
 
     this.modules.forEach(mod => mod.event(event, properties))
   }
 
   view(event) {
-    if (isDevelopment) {
-      console.log('PageViewEvent', event)
-      return false
-    }
+    log('PageViewEvent', event)
 
     const { pathname } = window.location
     this.modules.forEach(mod => mod.view(pathname))
@@ -46,16 +46,18 @@ class Multiplytix {
       reddit_pixel_s,
     } = config
 
-    google_analytics && this.modules.push(new GoogleAnalytics(google_analytics))
-    google_remarketing && this.modules.push(new GoogleRemarketingTag(google_remarketing))
-    mixpanel && this.modules.push(new Mixpanel(mixpanel))
-    hotjar && this.modules.push(new Hotjar(hotjar))
-    facebook_pixel && this.modules.push(new FacebookPixel(facebook_pixel))
-    twitter_pixel && this.modules.push(new TwitterPixel(twitter_pixel))
-    pinterest_pixel && this.modules.push(new PinterestPixel(pinterest_pixel))
-    (reddit_pixel_q && reddit_pixel_s) && this.modules.push(new RedditPixel(reddit_pixel_q, reddit_pixel_s))
+    google_analytics && this.modules.push(new GoogleAnalytics(google_analytics));
+    google_remarketing && this.modules.push(new GoogleRemarketingTag(google_remarketing));
+    mixpanel && this.modules.push(new Mixpanel(mixpanel));
+    hotjar && this.modules.push(new Hotjar(hotjar));
+    facebook_pixel && this.modules.push(new FacebookPixel(facebook_pixel));
+    twitter_pixel && this.modules.push(new TwitterPixel(twitter_pixel));
+    pinterest_pixel && this.modules.push(new PinterestPixel(pinterest_pixel));
+    if (reddit_pixel_q && reddit_pixel_s) {
+      this.modules.push(new RedditPixel(reddit_pixel_q, reddit_pixel_s));
+    }
 
-    console.log('Multiplytix: Added', this.modules)
+    log('AddedModules', this.modules)
   }
 
   constructor(config) {
