@@ -509,6 +509,13 @@ var MultiplytixLanden = function () {
       // TODO
     }
   }, {
+    key: 'handleFirstView',
+    value: function handleFirstView() {
+      var pathname = window.location.pathname;
+
+      window.multiplytix.view(pathname);
+    }
+  }, {
     key: 'addClickListeners',
     value: function addClickListeners() {
       var anchors = document.getElementsByTagName('A');
@@ -552,15 +559,16 @@ var MultiplytixLanden = function () {
     this.handleAnchorClick = function (e) {
       var currentTarget = e.currentTarget;
       var id = currentTarget.id,
-          src = currentTarget.src,
+          href = currentTarget.href,
           className = currentTarget.className,
           innerText = currentTarget.innerText;
 
-      window.multiplytix.event('LandenAnchorClick', { id: id, src: src, className: className, innerText: innerText });
+      window.multiplytix.event('LandenAnchorClick', { id: id, href: href, className: className, innerText: innerText });
     };
 
     window.multiplytix = new _multiplytix2.default(config);
     this.addEventListeners();
+    this.handleFirstView();
   }
 
   return MultiplytixLanden;

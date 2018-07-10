@@ -1,11 +1,11 @@
 {
   "name": "multiplytix-landen",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Drop in analytics for Landen pages",
   "main": "build/index.js",
   "dependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "multiplytix": "^0.0.4"
+    "multiplytix": "^0.0.5"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
