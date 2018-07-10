@@ -2170,9 +2170,9 @@ ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
 
-multiplytix@^0.4.0:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/multiplytix/-/multiplytix-0.0.4.tgz#3ed9e43046f04049f9be7495f1560d145933f0ac"
+multiplytix@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/multiplytix/-/multiplytix-0.0.5.tgz#c8dbe980471981bb748e5b14fa811d427e2a42b3"
   dependencies:
     babel-plugin-transform-class-properties "^6.24.1"
     react-facebook-pixel "^0.1.1"
