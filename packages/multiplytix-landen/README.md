@@ -21,7 +21,7 @@ Append this script tag and piece of code before you close the `<body>` tag
 
 You're done 🎉
 
-You can [check the example](https://github.com/cofablab/multiplytix-landen/blob/master/example/index.html#L436) for reference.
+[Check the example](https://github.com/cofablab/multiplytix-landen/blob/master/example/index.html#L436) for reference.
 
 ## Landen Events 🎭
 
