@@ -332,7 +332,7 @@ var Multiplytix = function () {
     value: function event(_event) {
       var properties = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-      if (!isProduction) {
+      if (isDevelopment) {
         console.log('AnalyticsEvent', _event, properties);
         return false;
       }
@@ -344,7 +344,7 @@ var Multiplytix = function () {
   }, {
     key: 'view',
     value: function view(event) {
-      if (!isProduction) {
+      if (isDevelopment) {
         console.log('PageViewEvent', event);
         return false;
       }

@@ -15,7 +15,7 @@ class Multiplytix {
   modules = []
 
   event(event, properties = {}) {
-    if (!isProduction) {
+    if (isDevelopment) {
       console.log('AnalyticsEvent', event, properties)
       return false
     }
@@ -24,7 +24,7 @@ class Multiplytix {
   }
 
   view(event) {
-    if (!isProduction) {
+    if (isDevelopment) {
       console.log('PageViewEvent', event)
       return false
     }
