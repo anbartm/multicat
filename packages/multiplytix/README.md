@@ -56,6 +56,9 @@ multiplytix.event(`MY_EVENT`, {me: 'ta', da: 'ta'})
 multiplytix.view('/thank-you.html')
 ```
 
+### Logging
+
+The library will log things to the console when in development (`process.env.NODE_ENV === 'development'`). You can also turn on logging by setting `window.LOG_MULTIPLYTIX` to `true`.
 
 ### Landen.io
 
