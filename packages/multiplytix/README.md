@@ -85,7 +85,7 @@ multiplytix.view('/thank-you.html')
     multiplytix.event(`MY_EVENT`, {me: 'ta', da: 'ta'});
   });
 </script>
-`
+```
 
 ## API
 
