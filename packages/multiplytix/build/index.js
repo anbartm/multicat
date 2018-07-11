@@ -352,13 +352,11 @@ var Multiplytix = function () {
     }
   }, {
     key: 'view',
-    value: function view(event) {
-      log('PageViewEvent', event);
-
-      var pathname = window.location.pathname;
+    value: function view(pathname) {
+      log('PageViewEvent', pathname);
 
       this.modules.forEach(function (mod) {
-        return mod.view && mod.view(pathname);
+        return mod.view && mod.view(pathname !== undefined ? pathname : window ? window.location.pathname : '');
       });
     }
   }, {
@@ -402,6 +400,11 @@ var Multiplytix = function () {
 }();
 
 exports.default = Multiplytix;
+
+
+if (window && !window.Multiplytix) {
+  window.Multiplytix = Multiplytix;
+}
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),

@@ -1,6 +1,6 @@
 {
   "name": "multiplytix",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Unified analytics API",
   "main": "build/index.js",
   "peerDependencies": {
