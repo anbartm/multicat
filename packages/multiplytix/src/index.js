@@ -67,3 +67,6 @@ class Multiplytix {
 
 export default Multiplytix
 
+if (window && !window.Multiplytix) {
+  window.Multiplytix = Multiplytix
+}
