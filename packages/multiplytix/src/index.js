@@ -26,11 +26,18 @@ class Multiplytix {
     this.modules.forEach(mod => mod.event && mod.event(event, properties))
   }
 
-  view(event) {
-    log('PageViewEvent', event)
+  view(pathname) {
+    log('PageViewEvent', pathname)
 
-    const { pathname } = window.location
-    this.modules.forEach(mod => mod.view && mod.view(pathname))
+    this.modules.forEach((mod) => (
+      mod.view && mod.view(
+        (pathname !== undefined)
+          ? pathname
+          : (window)
+            ? window.location.pathname
+            : ''
+      )
+    ))
   }
 
   initAnalytics(config) {
