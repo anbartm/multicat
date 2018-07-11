@@ -62,31 +62,28 @@ multiplytix.view('/thank-you.html')
 
 ```js
 <!-- Include the script -->
-<script src='https://unpkg.com/multiplytix@0.0.8/build/index.js'></script>
+<script src='//unpkg.com/multiplytix@0.0.8/build/index.js'></script>
 
 <script>
-// Specify your analytics IDs
-var multiplytixConfig = {
-  google_analytics: <GOOGLE_ANALYTICS_ID>,
-  google_remarketing: <GOOGLE_REMARKETING_TAG>,
-  mixpanel: <MIXPANEL_ID>,
-  hotjar: <HOTJAR_ID>,
-  facebook_pixel: <FACEBOOK_PIXEL_ID>,
-  twitter_pixel: <TWITTER_ID>,
-  pinterest_pixel: <PINTEREST_ID>,
-  reddit_pixel_q: <REDDIT_PIXEL_Q>,
-  reddit_pixel_s: <REDDIT_PIXEL_S>,
-}
+  // Specify your analytics IDs
+  var multiplytixConfig = {
+    google_analytics: 'GOOGLE_ANALYTICS_ID',
+    mixpanel: 'MIXPANEL_ID',
+    facebook_pixel: 'FACEBOOK_PIXEL_ID'
+  }
 
-// Initialize Multiplytix
-var multiplytix = new Multiplytix(multiplytixConfig);
+  // Initialize Multiplytix
+  var multiplytix = new Multiplytix(multiplytixConfig);
 
-// Run any page view or custom events
-multiplytix.view('/thank-you.html');
-var button = document.getElementById('submitButton');
-button.addEventListener('click', function(ev) {
-  multiplytix.event(`MY_EVENT`, {me: 'ta', da: 'ta'});
-});
+  // Run any page view
+  multiplytix.view('/thank-you.html');
+
+  // Attach listeners to things
+  var button = document.getElementById('submitButton');
+  button.addEventListener('click', function(ev) {
+    // Broadcast custom events in response to user actions
+    multiplytix.event(`MY_EVENT`, {me: 'ta', da: 'ta'});
+  });
 </script>
 `
 
