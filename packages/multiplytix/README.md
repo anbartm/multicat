@@ -99,7 +99,7 @@ Trigger a Page View event in GA, and a custom `PageView` event elsewhere. Pathna
 
 Examples:
 
-`multipllytix.view('/thank_you.html')`
+`multiplytix.view('/thank_you.html')`
 
 `multiplytix.view() // will infer pathname from window.location`
 
