@@ -89,15 +89,15 @@ multicat.view('/thank-you.html')
 
 ## Landen.io
 
-Drop in version for Landen: [https://github.com/cofablab/multicat-landen](https://github.com/cofablab/multicat/tree/master/packages/multicat-landen)
+Drop in version for Landen: [packages/multicat-landen](https://github.com/cofablab/multicat/tree/master/packages/multicat-landen)
 
 ## React
 
-Context provider for React: [https://github.com/cofablab/multicat-react](https://github.com/cofablab/multicat/tree/master/packages/multicat-react)
+Context provider for React: [packages/multicat-react](https://github.com/cofablab/multicat/tree/master/packages/multicat-react)
 
 ## API & Logging
 
-See the [package README.md](https://github.com/cofablab/multicat/tree/master/packages/multicat) for more info.
+See the [packages/multicat/README.md](https://github.com/cofablab/multicat/tree/master/packages/multicat) for more info.
 
 ## License
 
