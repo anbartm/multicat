@@ -2327,9 +2327,9 @@ ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
 
-multicat@^0.0.10:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/multicat/-/multicat-0.0.10.tgz#ecd9c4ee865f0f83ecbbc9109362aad585d52a4a"
+multicat@^0.0.11:
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/multicat/-/multicat-0.0.11.tgz#4604eec5b6d5b8c913df1d70fb33660d4f53143b"
   dependencies:
     babel-plugin-transform-class-properties "^6.24.1"
     react-facebook-pixel "^0.1.1"
