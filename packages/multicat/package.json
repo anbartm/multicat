@@ -17,9 +17,14 @@
     "start": "webpack --watch --config webpack.config.library.js",
     "build-lib": "webpack --config webpack.config.library.js",
     "build-web": "webpack -p --config webpack.config.web.js",
-    "build": "npm run build-lib && npm run build-web"
+    "build": "npm run build-lib && npm run build-web",
+    "readme": "node ./node_modules/.bin/node-readme"
   },
-  "author": "Cofab <contact@cofablab.com>",
+  "author": {
+    "name": "Cofab",
+    "url": "https://cofablab.com>",
+    "email": "srdjan@cofablab.com"
+  },
   "contributors": [
     {
       "name": "multicat contributors",
@@ -35,6 +40,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react-app": "^3.1.1",
     "babel-preset-stage-0": "^6.24.1",
+    "node-readme": "^0.1.9",
     "react": "^16.3.1",
     "webpack": "^3.8.1"
   },

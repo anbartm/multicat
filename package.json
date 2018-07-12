@@ -1,5 +1,27 @@
 {
+  "name": "multicat",
+  "version": "0.0.13",
+  "license": "MIT",
+  "author": {
+    "name": "Cofab",
+    "url": "https://cofablab.com>",
+    "email": "srdjan@cofablab.com"
+  },
+  "bugs": {
+    "url": "https://github.com/cofablab/multicat/issues"
+  },
+  "contributors": [
+    {
+      "name": "multicat contributors",
+      "url": "https://github.com/cofablab/multicat/graphs/contributors"
+    }
+  ],
 	"devDependencies": {
-		"lerna": "^2.11.0"
-	}
+		"lerna": "^2.11.0",
+		"node-readme": "^0.1.9"
+	},
+  "scripts": {
+    "readme": "node ./node_modules/.bin/node-readme"
+  },
+  "private": true
 }
