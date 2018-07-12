@@ -1,6 +1,6 @@
 {
   "name": "multicat-landen",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Drop in analytics for Landen pages",
   "main": "build/index.js",
   "dependencies": {
