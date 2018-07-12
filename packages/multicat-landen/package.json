@@ -1,11 +1,11 @@
 {
   "name": "multicat-landen",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Drop in analytics for Landen pages",
   "main": "build/index.js",
   "dependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "multicat": "^0.0.13"
+    "multicat": "^0.0.14"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
