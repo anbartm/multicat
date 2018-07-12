@@ -62,7 +62,7 @@ multiplytix.view('/thank-you.html')
 
 ```js
 <!-- Include the script -->
-<script src='//unpkg.com/multiplytix@0.0.8/build/index.js'></script>
+<script src='https://unpkg.com/multiplytix@0.0.9/build/web.js'></script>
 
 <script>
   // Specify your analytics IDs
