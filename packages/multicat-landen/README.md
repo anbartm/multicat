@@ -21,11 +21,11 @@ Append this script tag and piece of code before you close the `<body>` tag
 
 You're done 🎉
 
-[Check the example](https://github.com/cofablab/multicat-landen/blob/master/example/index.html#L436) for reference.
+[Check the example](https://github.com/cofablab/multicat/blob/master/packages/multicat-landen/example/index.html#L437) for reference.
 
 ## Landen Events 🎭
 
-Check out the [Multicat Landen tracking plan](https://github.com/cofablab/multicat-landen/blob/master/TRACKING_PLAN.md), to see which kinds of conversion events are supported out of the box.
+Check out the [Multicat Landen tracking plan](https://github.com/cofablab/multicat/blob/master/packages/multicat-landen/TRACKING_PLAN.md), to see which kinds of conversion events are supported out of the box.
 
 ## Custom events api 🛂
 
