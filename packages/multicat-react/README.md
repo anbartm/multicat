@@ -1,4 +1,4 @@
-# Multicat React
+# Multicat React integration
 
 [![NPM](https://img.shields.io/npm/v/multicat-react.svg)](https://www.npmjs.com/package/multicat-react)
 
@@ -31,18 +31,18 @@ yarn add multicat-react
 
 Wrap your App in a `Provider`, and receive `multicatEvent` or `multicatView` as props with the help of `withMulticat` wrapper, or receive them from the context through `contextTypes`.
 
-Check the [example project](https://github.com/cofablab/multicat-react/tree/master/example) in this repository.
+Check the [example project](https://github.com/cofablab/multicat/blob/master/packages/multicat-react/example) in this package.
 
-- In [multicat.config.js](https://github.com/cofablab/multicat-react/blob/master/example/src/multicat.config.js) we read the values from the process environment. Set these at deploy time, or overwrite here.
-- In [index.js](https://github.com/cofablab/multicat-react/blob/master/example/src/index.js) we import a `Provider` from `multicat`, give it a configuration, and have it wrap the `<App>` component.
-- In [App.js](https://github.com/cofablab/multicat-react/blob/master/example/src/App.js) we obtain `multicatView` and `multicatEvent` from the provided `context`.
-- In [Cart.js](https://github.com/cofablab/multicat-react/blob/master/example/src/Cart.js) we obtain `multicatEvent`  from `props` with the help of `withMulticat` consumer.
+- In [multicat.config.js](https://github.com/cofablab/multicat/blob/master/packages/multicat-react/example/src/multicat.config.js) we read the values from the process environment. Set these at deploy time, or overwrite here.
+- In [index.js](https://github.com/cofablab/multicat/blob/master/packages/multicat-react/example/src/index.js) we import a `Provider` from `multicat`, give it a configuration, and have it wrap the `<App>` component.
+- In [App.js](https://github.com/cofablab/multicat/blob/master/packages/multicat-react/example/src/App.js) we obtain `multicatView` and `multicatEvent` from the provided `context`.
+- In [Cart.js](https://github.com/cofablab/multicat/blob/master/packages/multicat-react/example/src/Cart.js) we obtain `multicatEvent`  from `props` with the help of `withMulticat` consumer.
 
 ### Upcoming API changes
 
 #### ❓📦🤷‍♀️
 
-We're exploring how to implement the context provider [with the new React Context API](https://reactjs.org/docs/context.html). Please check the [draft proposal](https://github.com/cofablab/multicat-react/blob/master/API_PROPOSAL.md) and state your preferences in the [issues section](https://github.com/cofablab/multicat-react/issues). Thank you.
+We're exploring how to implement the context provider [with the new React Context API](https://reactjs.org/docs/context.html). Please check the [draft proposal](https://github.com/cofablab/multicat/blob/master/packages/multicat-react/API_PROPOSAL.md) and state your preferences in the [issues section](https://github.com/cofablab/multicat/issues). Thank you.
 
 ## License
 
