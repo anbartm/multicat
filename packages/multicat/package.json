@@ -2,6 +2,7 @@
   "name": "multicat",
   "version": "0.0.10",
   "description": "Unified analytics API",
+  "repository": "cofablab/multicat",
   "main": "build/lib.js",
   "peerDependencies": {
     "react": "^16.3.1"
