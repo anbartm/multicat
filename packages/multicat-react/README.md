@@ -18,13 +18,13 @@
 ## Install
 
 ```bash
-npm install --save multicat multicat-react
+npm install --save multicat-react
 ```
 
 or
 
 ```bash
-yarn add multicat multicat-react
+yarn add multicat-react
 ```
 
 ## Usage
@@ -33,6 +33,7 @@ Wrap your App in a `Provider`, and receive `multicatEvent` or `multicatView` as 
 
 Check the [example project](https://github.com/cofablab/multicat-react/tree/master/example) in this repository.
 
+- In [multicat.config.js](https://github.com/cofablab/multicat-react/blob/master/example/src/multicat.config.js) we read the values from the process environment. Set these at deploy time, or overwrite here.
 - In [index.js](https://github.com/cofablab/multicat-react/blob/master/example/src/index.js) we import a `Provider` from `multicat`, give it a configuration, and have it wrap the `<App>` component.
 - In [App.js](https://github.com/cofablab/multicat-react/blob/master/example/src/App.js) we obtain `multicatView` and `multicatEvent` from the provided `context`.
 - In [Cart.js](https://github.com/cofablab/multicat-react/blob/master/example/src/Cart.js) we obtain `multicatEvent`  from `props` with the help of `withMulticat` consumer.
