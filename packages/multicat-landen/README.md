@@ -1,7 +1,7 @@
 Multicat Landen integration
 ==============================
 
-[![npm](https://img.shields.io/npm/v/multicat-landen.svg)(https://www.npmjs.com/package/multicat-landen) ![license](https://img.shields.io/npm/l/multicat-landen.svg) 
+[![npm](https://img.shields.io/npm/v/multicat-landen.svg)](https://www.npmjs.com/package/multicat-landen) ![license](https://img.shields.io/npm/l/multicat-landen.svg) 
 
 Append this script tag and piece of code before you close the `<body>` tag
 

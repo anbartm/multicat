@@ -1,6 +1,6 @@
 # Multicat
 
-[![npm](https://img.shields.io/npm/v/multicat.svg)(https://www.npmjs.com/package/multicat) ![license](https://img.shields.io/npm/l/multicat.svg) 
+[![npm](https://img.shields.io/npm/v/multicat.svg)](https://www.npmjs.com/package/multicat) ![license](https://img.shields.io/npm/l/multicat.svg) 
 
 > A Unified analytics API
 

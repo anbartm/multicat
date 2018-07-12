@@ -1,6 +1,6 @@
 # Multicat
 
-[![npm](https://img.shields.io/npm/v/multicat.svg)(https://www.npmjs.com/package/multicat) ![license](https://img.shields.io/npm/l/multicat.svg) 
+[![npm](https://img.shields.io/npm/v/multicat.svg)](https://www.npmjs.com/package/multicat) ![license](https://img.shields.io/npm/l/multicat.svg) 
 
 > A Unified analytics API
 
@@ -64,7 +64,7 @@ multicat.view('/thank-you.html')
 
 ```js
 <!-- Include the script -->
-<script src='https://unpkg.com/multicat@0.0.13/build/web.js'></script>
+<script src='https://unpkg.com/multicat@0.0.14/build/web.js'></script>
 
 <script>
   // Specify your analytics IDs

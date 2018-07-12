@@ -1,6 +1,6 @@
 # Multicat React integration
 
-[![npm](https://img.shields.io/npm/v/multicat-react.svg)(https://www.npmjs.com/package/multicat-react) ![license](https://img.shields.io/npm/l/multicat-react.svg) 
+[![npm](https://img.shields.io/npm/v/multicat-react.svg)](https://www.npmjs.com/package/multicat-react) ![license](https://img.shields.io/npm/l/multicat-react.svg) 
 
 > React context provider for [Multicat](https://github.com/cofablab/multicat), the unified analytics API.
 
@@ -49,4 +49,6 @@ We're exploring how to implement the context provider [with the new React Contex
 
 ## License
 
-MIT © [Cofab](https://github.com/cofablab)
+MIT © [Cofab](https://cofablab.com>)
+
+- [Contributors](https://github.com/cofablab/multicat/graphs/contributors)
