@@ -2327,14 +2327,6 @@ ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
 
-multicat@^0.0.11:
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/multicat/-/multicat-0.0.11.tgz#4604eec5b6d5b8c913df1d70fb33660d4f53143b"
-  dependencies:
-    babel-plugin-transform-class-properties "^6.24.1"
-    react-facebook-pixel "^0.1.1"
-    react-ga "^2.5.3"
-
 nan@^2.9.2:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.10.0.tgz#96d0cd610ebd58d4b4de9cc0c6828cda99c7548f"
@@ -2749,18 +2741,7 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-facebook-pixel@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/react-facebook-pixel/-/react-facebook-pixel-0.1.1.tgz#9f258a08590ec7c11837cc4bc94e294d11a908bc"
-
-react-ga@^2.5.3:
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-2.5.3.tgz#0f447c73664c069a5fc341f6f431262e3d4c23c4"
-  optionalDependencies:
-    prop-types "^15.6.0"
-    react "^15.6.2 || ^16.0"
-
-"react@^15.6.2 || ^16.0", react@^16.3.1:
+react@^16.3.1:
   version "16.4.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.4.1.tgz#de51ba5764b5dbcd1f9079037b862bd26b82fe32"
   dependencies:
