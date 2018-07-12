@@ -2,7 +2,7 @@
   "name": "multiplytix",
   "version": "0.0.8",
   "description": "Unified analytics API",
-  "main": "build/index.js",
+  "main": "build/lib.js",
   "peerDependencies": {
     "react": "^16.3.1"
   },
@@ -13,8 +13,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch",
-    "build": "webpack"
+    "start": "webpack --watch --config webpack.config.library.js",
+    "build-lib": "webpack --config webpack.config.library.js",
+    "build-web": "webpack -p --config webpack.config.web.js",
+    "build": "npm run build-lib && npm run build-web"
   },
   "author": "Cofab <contact@cofablab.com>",
   "contributors": [
