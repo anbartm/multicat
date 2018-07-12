@@ -1,15 +1,15 @@
 {
   "name": "multicat-react",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "React context for the Multicat analytics API",
   "main": "build/index.js",
   "peerDependencies": {
     "react": "^16.3.1"
   },
   "dependencies": {
-    "multicat": "^0.0.11",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "hoist-non-react-statics": "^2.5.5"
+    "hoist-non-react-statics": "^2.5.5",
+    "multicat": "^0.0.12"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
