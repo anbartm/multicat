@@ -1,0 +1,37 @@
+{
+  "name": "multicat-landen",
+  "version": "0.0.10",
+  "description": "Drop in analytics for Landen pages",
+  "main": "build/index.js",
+  "dependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "multicat": "^0.0.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch",
+    "build": "webpack -p"
+  },
+  "author": "Cofab <contact@cofablab.com>",
+  "contributors": [
+    {
+      "name": "multicat contributors",
+      "url": "https://github.com/cofablab/multicat/graphs/contributors"
+    }
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "webpack": "^3.8.1"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}
