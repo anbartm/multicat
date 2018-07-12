@@ -33,53 +33,15 @@ Wrap your App in a `Provider`, and receive `multiplytixEvent` or `multiplytixVie
 
 Check the [example project](https://github.com/cofablab/multiplytix-react/tree/master/example) in this repository.
 
-### Upcoming API changes ❓📦🤷‍♀️
+- In [index.js](https://github.com/cofablab/multiplytix-react/blob/master/example/src/index.js) we import a `Provider` from `multiplytix`, give it a configuration, and have it wrap the `<App>` component.
+- In [App.js](https://github.com/cofablab/multiplytix-react/blob/master/example/src/App.js) we obtain `multiplytixView` and `multiplytixEvent` from the provided `context`.
+- In [Cart.js](https://github.com/cofablab/multiplytix-react/blob/master/example/src/Cart.js) we obtain `multiplytixEvent`  from `props` with the help of `withMultiplytix` consumer.
 
-We're exploring how to implement the context provider [with the new API](https://reactjs.org/docs/context.html):
+### Upcoming API changes
 
-```jsx
-import React, { Component } from 'react'
+#### ❓📦🤷‍♀️
 
-import Multiplytix, { Provider, Consumer } from 'multiplytix'
-
-const config = {
-  google: process.env.REACT_APP_GOOGLE_ID,
-  mixpanel: process.env.REACT_APP_MIXPANEL_ID,
-}
-
-class App extends Component {
-  render () {
-    return (
-      <Provider config={ config }>
-        { /* Your other container & child components */ }
-      </Provider>
-    )
-  }
-}
-
-class Somewhere extends Component {
-  handleClick(e, multiplytixEvent) {
-    e.preventDefault()
-    multiplytixEvent(
-      'ButtonClicked',
-      {
-        context: 'somewhere',
-        metadata: 42,
-      }
-    )
-    window.open('https://example.com')
-  }
-  render() {
-    return (
-      <Consumer> {({ multiplytixEvent }) => (
-        <button onClick={ (e) => this.handleClick(e, multiplytixEvent) } />
-      )} </Consumer>
-    )
-  }
-}
-```
-
-State your preferences in the [issues section](https://github.com/cofablab/multiplytix-react/issues) please.
+We're exploring how to implement the context provider [with the new React Context API](https://reactjs.org/docs/context.html). Please check the [draft proposal](https://github.com/cofablab/multiplytix-react/blob/master/API_PROPOSAL.md) and state your preferences in the [issues section](https://github.com/cofablab/multiplytix-react/issues). Thank you.
 
 ## License
 

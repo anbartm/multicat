@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { Provider } from 'multiplytix-react'
+import { Provider as MultiplytixProvider } from 'multiplytix-react'
 
 import App from './App'
 
@@ -30,8 +30,8 @@ const multiplytixConfig = {
 }
 
 ReactDOM.render(
-  <Provider config={ multiplytixConfig }>
+  <MultiplytixProvider config={ multiplytixConfig }>
     <App />
-  </Provider>,
+  </MultiplytixProvider>,
   document.getElementById('root')
 )
