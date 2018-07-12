@@ -352,8 +352,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _jsxFileName = "/Users/s1e/Sites/Cofab/multiplytix-react/src/withMultiplytix.js";
-
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
@@ -381,12 +379,7 @@ var withMultiplytix = function withMultiplytix(Component) {
     return _react2.default.createElement(Component, _extends({}, remainingProps, {
       ref: wrappedComponentRef,
       multiplytixEvent: multiplytixEvent,
-      multiplytixView: multiplytixView,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 10
-      },
-      __self: undefined
+      multiplytixView: multiplytixView
     }));
   };
 
@@ -1315,7 +1308,6 @@ module.exports = hoistNonReactStatics;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _jsxFileName = '/Users/s1e/Sites/Cofab/multiplytix-react/src/Provider.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -1381,13 +1373,7 @@ var Provider = function (_PureComponent) {
 
       return _react2.default.createElement(
         _react.Fragment,
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 35
-          },
-          __self: this
-        },
+        null,
         children
       );
     }
@@ -1760,13 +1746,11 @@ var Multiplytix = function () {
     }
   }, {
     key: 'view',
-    value: function view(event) {
-      log('PageViewEvent', event);
-
-      var pathname = window.location.pathname;
+    value: function view(pathname) {
+      log('PageViewEvent', pathname);
 
       this.modules.forEach(function (mod) {
-        return mod.view && mod.view(pathname);
+        return mod.view && mod.view(pathname !== undefined ? pathname : window ? window.location.pathname : '');
       });
     }
   }, {
@@ -1810,6 +1794,11 @@ var Multiplytix = function () {
 }();
 
 exports.default = Multiplytix;
+
+
+if (window && !window.Multiplytix) {
+  window.Multiplytix = Multiplytix;
+}
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
