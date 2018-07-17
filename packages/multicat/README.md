@@ -6,7 +6,7 @@
 
 ![nodei.co](https://nodei.co/npm/multicat.png?downloads=true&downloadRank=true&stars=true)
 
-See [Main README.md](https://github.com/cofablab/multicat) for Installation & Usage instructions.
+See [Main README.md](https://github.com/cofablab/multicat) for Features, Installation & Usage instructions.
 
 ## API
 

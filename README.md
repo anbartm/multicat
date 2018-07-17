@@ -8,12 +8,13 @@
 
 Providers:
 
-- Mixpanel
 - Google Analytics
 - Google Remarketing Tag
+- Mixpanel
 - Facebook pixel
-- Reddit pixel
 - Twitter pixel
+- Pinterest pixel
+- Reddit pixel
 - Hotjar
 
 Features:
