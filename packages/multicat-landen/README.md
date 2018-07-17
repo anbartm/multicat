@@ -6,7 +6,7 @@ Multicat Landen integration
 Append this script tag and piece of code before you close the `<body>` tag
 
 ```
-<script src='https://unpkg.com/multicat-landen@0.0.14/build/index.js' async></script>
+<script src='https://unpkg.com/multicat-landen@0.0.15/build/index.js' async></script>
 <script>
   function initMulticat() {
     new MulticatLanden({
