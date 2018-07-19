@@ -65,7 +65,7 @@ multicat.view('/thank-you.html')
 
 ```js
 <!-- Include the script -->
-<script src='https://unpkg.com/multicat@0.0.14/build/web.js'></script>
+<script src='https://unpkg.com/multicat@0.0.16/build/web.js'></script>
 
 <script>
   // Specify your analytics IDs
