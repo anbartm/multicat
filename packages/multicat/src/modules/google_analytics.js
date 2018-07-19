@@ -15,9 +15,8 @@ class GoogleAnalytics {
   event(event, properties) {
     // TODO: Add properties
     ReactGA.event({
-      category: 'Default',
       action: event,
-      label: event,
+      ...properties
     })  
   }
 
