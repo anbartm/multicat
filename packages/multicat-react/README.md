@@ -47,7 +47,7 @@ Check the [example project](https://github.com/cofablab/multicat/blob/master/pac
 
 We're exploring how to implement the context provider [with the new React Context API](https://reactjs.org/docs/context.html). Please check the [draft proposal](https://github.com/cofablab/multicat/blob/master/packages/multicat-react/API_PROPOSAL.md) and state your preferences in the [issues section](https://github.com/cofablab/multicat/issues). Thank you.
 
-## License
+## License & Contributors
 
 MIT © [Cofab](https://cofablab.com>)
 
