@@ -107,3 +107,7 @@ See the [packages/multicat/README.md](https://github.com/cofablab/multicat/tree/
 MIT © [Cofab](https://cofablab.com>)
 
 - [Contributors](https://github.com/cofablab/multicat/graphs/contributors)
+
+---
+
+You can find more tools like this on the [Cofab](https://cofablab.com/) website.
