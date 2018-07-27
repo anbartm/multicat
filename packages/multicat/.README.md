@@ -16,7 +16,7 @@ Set the following keys on the options object, to activate corresponding modules:
 
 ### view(pathname: String)
 
-Trigger a Page View event in GA, and a custom `PageView` event elsewhere. Pathname is the URL reported.
+Trigger a Page View event in GA, and a custom `PageView` event elsewhere. The pathname is the URL reported.
 
 Examples:
 
@@ -24,13 +24,23 @@ Examples:
 
 `multicat.view() // will infer pathname from window.location`
 
-### event(name: String, properties: Object)
+### event(action: String, properties: Object)
 
-Trigger a custom event specified by name (i.e.: 'ConversionClick'). Add any metadata you wish to the properties hash.
+Trigger a custom event specified by `action` (i.e.: 'ConversionClick'). Add any metadata you wish to the properties hash.
 
 Example:
 
 `multicat.event('ConversionClick', { buttonColor: 'orange' })`
+
+**Google Analytics:**
+
+If you wish to use the Google Analytics events API effectively, keep in mind that Multicat uses the specified event `action`  for the Google Analytics event `action`. You should provide at least the `category` property, as well as `label`, or any other valid Google Analytics event properties.
+
+Example:
+
+`multicat.event('ToolDemoClick', { category: 'DevTools', label: 'Multicat' })`
+
+This type of event metadata structure will enable you to effectively use segmentation in both Mixpanel & Google Analytics, as well as create custom audiences in Facebook.   
 
 ## Logging
 

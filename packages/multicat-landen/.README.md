@@ -25,11 +25,11 @@ You're done 🎉
 
 ## Landen Events 🎭
 
-Check out the [Multicat Landen tracking plan](https://github.com/cofablab/multicat/blob/master/packages/multicat-landen/TRACKING_PLAN.md), to see which kinds of conversion events are supported out of the box.
+Check out the [Multicat Landen tracking plan](https://github.com/cofablab/multicat/blob/master/packages/multicat-landen/TRACKING_PLAN.md), to see which kinds of conversion events Multicat supports out of the box.
 
-## Custom events api 🛂
+## Custom events API 🛂
 
-If you wish to implement additional conversion events yourself, use the window.multicat instance to dispatch events and pageviews, like so:
+If you wish to implement additional conversion events yourself, use the `window.multicat` instance to dispatch events and pageviews, like so:
 
 ```
 window.multicat && window.multicat.event(
