@@ -6,6 +6,7 @@ import FacebookPixel from './modules/facebook_pixel'
 import PinterestPixel from './modules/pinterest_pixel'
 import TwitterPixel from './modules/twitter_pixel'
 import RedditPixel from './modules/reddit_pixel'
+import RESTEndpoint from './modules/rest_endpoint'
 
 export const isDevelopment = process.env.NODE_ENV === 'development'
 export const isProduction = process.env.NODE_ENV === 'production'
@@ -51,6 +52,7 @@ class Multicat {
       pinterest_pixel,
       reddit_pixel_q,
       reddit_pixel_s,
+      rest_endpoint,
     } = config
 
     google_analytics && this.modules.push(new GoogleAnalytics(google_analytics));
@@ -60,6 +62,7 @@ class Multicat {
     facebook_pixel && this.modules.push(new FacebookPixel(facebook_pixel));
     twitter_pixel && this.modules.push(new TwitterPixel(twitter_pixel));
     pinterest_pixel && this.modules.push(new PinterestPixel(pinterest_pixel));
+    rest_endpoint && this.modules.push(new RESTEndpoint(rest_endpoint));
     if (reddit_pixel_q && reddit_pixel_s) {
       this.modules.push(new RedditPixel(reddit_pixel_q, reddit_pixel_s));
     }

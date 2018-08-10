@@ -16,6 +16,7 @@ Providers:
 - Pinterest pixel
 - Reddit pixel
 - Hotjar
+- REST endpoint
 
 Features:
 
@@ -53,6 +54,7 @@ const multicatConfig = {
   pinterest_pixel: <PINTEREST_ID>,
   reddit_pixel_q: <REDDIT_PIXEL_Q>,
   reddit_pixel_s: <REDDIT_PIXEL_S>,
+  rest_endpoint: <REST_ENDPOINT>,
 }
 
 const multicat = new Multicat(multicatConfig)
