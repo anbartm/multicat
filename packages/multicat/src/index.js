@@ -6,6 +6,7 @@ import FacebookPixel from './modules/facebook_pixel'
 import PinterestPixel from './modules/pinterest_pixel'
 import TwitterPixel from './modules/twitter_pixel'
 import RedditPixel from './modules/reddit_pixel'
+import LinkedIn from './modules/linkedin'
 import RESTEndpoint from './modules/rest_endpoint'
 
 export const isDevelopment = process.env.NODE_ENV === 'development'
@@ -52,6 +53,7 @@ class Multicat {
       pinterest_pixel,
       reddit_pixel_q,
       reddit_pixel_s,
+      linkedin,
       rest_endpoint,
     } = config
 
@@ -63,6 +65,7 @@ class Multicat {
     twitter_pixel && this.modules.push(new TwitterPixel(twitter_pixel));
     pinterest_pixel && this.modules.push(new PinterestPixel(pinterest_pixel));
     rest_endpoint && this.modules.push(new RESTEndpoint(rest_endpoint));
+    linkedin && this.modules.push(new LinkedIn(linkedin));
     if (reddit_pixel_q && reddit_pixel_s) {
       this.modules.push(new RedditPixel(reddit_pixel_q, reddit_pixel_s));
     }
