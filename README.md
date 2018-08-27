@@ -15,6 +15,7 @@ Providers:
 - Twitter pixel
 - Pinterest pixel
 - Reddit pixel
+- LinkedIn Insight Tag
 - Hotjar
 - REST endpoint
 
@@ -54,6 +55,7 @@ const multicatConfig = {
   pinterest_pixel: <PINTEREST_ID>,
   reddit_pixel_q: <REDDIT_PIXEL_Q>,
   reddit_pixel_s: <REDDIT_PIXEL_S>,
+  linkedin: <LINKEDIN_PARTNER_ID>,
   rest_endpoint: <REST_ENDPOINT>,
 }
 

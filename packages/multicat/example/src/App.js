@@ -12,6 +12,7 @@ const TWITTER_ID              = process.env.REACT_APP_TWITTER_ID
 const PINTEREST_ID            = process.env.REACT_APP_PINTEREST_ID
 const REDDIT_PIXEL_Q          = process.env.REACT_APP_REDDIT_PIXEL_Q
 const REDDIT_PIXEL_S          = process.env.REACT_APP_REDDIT_PIXEL_S
+const LINKEDIN_PARTNER_ID     = process.env.LINKEDIN_PARTNER_ID
 
 const multicatConfig = {
   google_analytics:   GOOGLE_ANALYTICS_ID,
@@ -24,6 +25,7 @@ const multicatConfig = {
   pinterest_pixel:    PINTEREST_ID,
   reddit_pixel_q:     REDDIT_PIXEL_Q,
   reddit_pixel_s:     REDDIT_PIXEL_S,
+  linkedin:           LINKEDIN_PARTNER_ID,
 }
 
 const multicat = new Multicat(multicatConfig)
